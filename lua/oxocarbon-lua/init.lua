@@ -46,8 +46,14 @@ local extend_with_attributes = function(orig, attrs)
 		return orig
 	end
 
-	for _, attr in ipairs(attrs) do
-		orig[attr] = 1
+	for k, v in pairs(attrs) do
+		if type(k) == "number" then
+			-- Value is the attribute name
+			orig[v] = 1
+		else
+			-- Key is the attribute name
+			orig[k] = v
+		end
 	end
 	return orig
 end
@@ -195,6 +201,12 @@ return {
 		highlight('DiffChange', "#222a39", 18)
 		highlight('DiffText', "#2f3f5c", 18)
 		highlight('DiffDelete', "#361c28", 18)
+
+		-- Spell
+		highlight('SpellBad', 18, 18, { sp = colors[11], 'undercurl' })
+		highlight('SpellCap', 18, 18, { sp = colors[10], 'undercurl' })
+		highlight('SpellRare', 18, 18, { sp = colors[15], 'undercurl' })
+		highlight('SpellLocal', 18, 18, { sp = colors[9], 'undercurl' })
 
 		-- treesitter
 		highlight('TSAnnotation', 13, 18)
