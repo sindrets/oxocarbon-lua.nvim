@@ -325,7 +325,7 @@ return {
 		highlight('CmpItemKindFunction', 13, 18)
 		highlight('CmpItemKindMethod', 8, 18)
 		highlight('CmpItemAbbrMatch', 6, 18, {'bold'})
-		highlight('CmpItemAbbr', 21, 18, {'bold'})
+		highlight('CmpItemAbbr', 20, 18, {'bold'})
 
 		-- nvimtree
 		highlight('NvimTreeImageFile', 13, 18)
