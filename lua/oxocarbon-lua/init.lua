@@ -65,8 +65,8 @@ return {
 		set_terminal_colors(colors)
 
 		local highlight = function(name, fg, bg, attrs)
-			local fg_color = colors[fg]
-			local bg_color = colors[bg]
+			local fg_color = type(fg) == "number" and colors[fg] or fg
+			local bg_color = type(bg) == "number" and colors[bg] or bg
 
 			vim.api.nvim_set_hl(
 				0,
@@ -186,6 +186,15 @@ return {
 		highlight('Todo', 14, 18)
 		highlight('Type', 10, 18)
 		highlight('Typedef', 10, 18)
+
+		-- diff
+		highlight('diffAdded', 8, 18)
+		highlight('diffChanged', 10, 18)
+		highlight('diffRemoved', 11, 18)
+		highlight('DiffAdd', "#122f2f", 18)
+		highlight('DiffChange', "#222a39", 18)
+		highlight('DiffText', "#2f3f5c", 18)
+		highlight('DiffDelete', "#361c28", 18)
 
 		-- treesitter
 		highlight('TSAnnotation', 13, 18)
