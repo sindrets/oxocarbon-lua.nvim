@@ -110,7 +110,7 @@ return {
 		-- diagnostics
 		highlight('DiagnosticWarn', 9, 18)
 		highlight('DiagnosticError', 11, 18)
-		highlight('DiagnosticInfo', 5, 18)
+		highlight('DiagnosticInfo', 10, 18)
 		highlight('DiagnosticHint', 5, 18)
 		highlight('DiagnosticUnderlineWarn', 9, 18, {'undercurl'})
 		highlight('DiagnosticUnderlineError', 11, 18, {'undercurl'})
@@ -133,12 +133,12 @@ return {
 
 		-- prompts
 		highlight('EndOfBuffer', 2, 18)
-		highlight('ErrorMsg', 5, 12)
+		highlight('ErrorMsg', 11, 18)
 		highlight('ModeMsg', 5, 18)
 		highlight('MoreMsg', 9, 18)
 		highlight('Question', 5, 18)
 		highlight('Substitute', 5, 18)
-		highlight('WarningMsg', 1, 14)
+		highlight('WarningMsg', 14, 18)
 		highlight('WildMenu', 9, 2)
 
 		-- search
