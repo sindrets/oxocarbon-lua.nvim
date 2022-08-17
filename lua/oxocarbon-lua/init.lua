@@ -70,7 +70,7 @@ return {
 		vim.api.nvim_set_option('termguicolors', true)
 		set_terminal_colors(colors)
 
-		local highlight = function(name, fg, bg, attrs)
+		local function highlight(name, fg, bg, attrs)
 			local fg_color = type(fg) == "number" and colors[fg] or fg
 			local bg_color = type(bg) == "number" and colors[bg] or bg
 
@@ -85,6 +85,10 @@ return {
 					attrs
 				)
 			)
+		end
+
+		local function link(from, to)
+			vim.api.nvim_set_hl(0, from, { link = to })
 		end
 
 		-- editor
@@ -284,6 +288,18 @@ return {
 		highlight('StatusPosition', 20, 1, {'bold'})
 		highlight('StatusNormal', 20, 1, {'underline'})
 		highlight('StatusCommand', 20, 1, {'underline'})
+
+		-- vimhelp
+		link("helpHyperTextJump", "Function")
+		link("helpSpecial", "Boolean")
+		link("helpHeadline", "TSTitle")
+		link("helpHeader", "Number")
+
+		-- man.vim
+		link("manHeader", "String")
+		link("manSectionHeading", "helpHeadline")
+		link("manSubHeading", "helpHeader")
+		link("manOptionDesc", "helpSpecial")
 
 		-- telescope
 		highlight('TelescopeBorder', 17, 17)
